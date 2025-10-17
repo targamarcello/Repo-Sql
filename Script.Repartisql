@@ -1,0 +1,22 @@
+create table reparti(
+	id_reparto int primary key,
+	nome_reparto varchar(20) not null,
+	cod_responsabile int
+);
+create table dipendenti(
+	id_dipendente int primary key,
+	cognome varchar(20) not null,
+	nome varchar(20) not null,
+	data_nascita date not null,
+	cap int,
+	citta varchar(20),
+	anzianita int,
+	id_reparto int,
+	foreign key (id_reparto) references reparti(id_reparto)
+);
+insert into reparti(id_reparto, nome_reparto, cod_responsabile)
+values (1, 'Amministrazione', 101),(2, 'Produzione', 102),(3, 'Risorse Umane', 103),(4, 'Informatica', 104);
+
+insert into dipendenti(id_dipendente, cognome,nome,data_nascita,cap,citta,anzianita,id_reparto)
+values (101, 'Rossi', 'Marco', '1980-05-12', '00100', 'Roma', 15, 1),(102, 'Bianchi', 'Luca', '1985-09-20', '20100', 'Milano', 10, 2),
+(103, 'Verdi', 'Giulia', '1990-03-10', '50100', 'Firenze', 8, 3),(104, 'Neri', 'Paolo', '1995-11-02', '80100', 'Napoli', 3, 4);
