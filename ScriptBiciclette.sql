@@ -110,8 +110,20 @@ from marche m
 join esemplari e on m.id_marca = e.id_marca 
 order by m.nome;
 
+-- Elencare quanti modella ha la marca 'Bianchi'
+select count(*) as numero_modelli
+from esemplari
+where id_marca = 1;
 
+-- Elencare il modello con la dimensione più piccola
+select min(dimensione) as dimensione_piccola
+from esemplari;
 
+-- Elencare il modello con la dimensione più grande
+select max(dimensione) as dimensione_grande
+from esemplari;
 
-
-
+-- Esempio group by
+select id_marca, count(*) as numero_modelli
+from esemplari
+group by id_marca;
